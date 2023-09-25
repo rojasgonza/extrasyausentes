@@ -38,9 +38,12 @@ exports.iniciarSesion = async (req, res, next) => {
             }, 'LLAVESECRETA', {
                 expiresIn: '5h'
             })
-
+            const datos = {
+                nombre: usuario.nombre,
+                nivel: usuario.nivel
+            }
             //devolver token
-            res.json({ token })
+            res.json({ token, datos })
         }
     }
 }
